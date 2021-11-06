@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.google.com/s2/u/0/favicons?domain=css-tricks.com"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Dice Game</title>
+  </head>
+  <body>
+    <!-- loading screen -->
+    <section class="loading-section flex-center">
+      <h1>Loading Dice...</h1>
+    </section>
+    <!-- menu section -->
+    <section class="menu-section flex-center hide">
+      <h1 style="--order: 1">The Dice Game</h1>
+      <hr style="--order: 2" />
+      <div class="action-btn flex-center">
+        <a
+          href="#"
+          id="playBtn"
+          style="--order: 3"
+          class="flex-center svg-stroke"
+        >
+          <span>Play Now</span>
+          <svg width="50" height="50" viewBox="0 0 50 50">
+            <g>
+              <path
+                d="M41.9584 21.4375L12.5001 3.79165C11.87 3.42783 11.1557 3.23533 10.4281 3.23329C9.7006 3.23125 8.98521 3.41975 8.35313 3.78004C7.72106 4.14032 7.19434 4.65983 6.82537 5.28687C6.45641 5.91392 6.25806 6.62665 6.25006 7.35415L6.25006 42.6458C6.25805 43.3733 6.45641 44.086 6.82537 44.7131C7.19434 45.3401 7.72106 45.8596 8.35313 46.2199C8.98521 46.5802 9.7006 46.7687 10.4281 46.7667C11.1557 46.7646 11.87 46.5721 12.5001 46.2083L41.9584 28.5625C42.5707 28.1911 43.0769 27.6682 43.4282 27.0441C43.7795 26.4201 43.9641 25.7161 43.9641 25C43.9641 24.2839 43.7795 23.5798 43.4282 22.9558C43.0769 22.3318 42.5707 21.8089 41.9584 21.4375V21.4375Z"
+              />
+            </g>
+          </svg>
+        </a>
+        <a
+          href="#"
+          id="instBtn"
+          style="--order: 4"
+          class="flex-center svg-stroke"
+          ><span>Instructions</span>
+          <svg width="50" height="50" viewBox="0 0 50 50">
+            <path
+              d="M25.0001 45.8333C36.506 45.8333 45.8334 36.5059 45.8334 25C45.8334 13.494 36.506 4.16663 25.0001 4.16663C13.4941 4.16663 4.16675 13.494 4.16675 25C4.16675 36.5059 13.4941 45.8333 25.0001 45.8333Z"
+            />
+            <path
+              d="M18.9375 18.75C19.4273 17.3576 20.3941 16.1835 21.6666 15.4357C22.9391 14.6878 24.4352 14.4144 25.89 14.6639C27.3447 14.9135 28.6642 15.6698 29.6147 16.799C30.5653 17.9282 31.0855 19.3573 31.0833 20.8333C31.0833 25 24.8333 27.0833 24.8333 27.0833"
+            />
+            <path d="M25 35.4166H25.0208" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- game screen -->
+    <section class="game-screen hide">
+      <div class="back-btn">
+        <span style="font-size: 2rem">&#x21FD;</span> Back
+      </div>
+      <div class="board-container">
+        <div class="board">
+          <div class="player-details left" id="player-0">
+            <h2>Player 1</h2>
+            <h3>Score: <span id="score-0">0</span></h3>
+            <img id="dice-p0" src="dice_png/Dice-1.png" />
+            <h4>Current Score: <span id="curr_score_0">0</span></h4>
+          </div>
+          <div class="game-btn">
+            <button class="btn-new">New game</button>
+            <button class="btn-roll">Roll Dice</button>
+            <button class="btn-hold">Hold Points</button>
+          </div>
+          <div class="player-details right non-active-player" id="player-1">
+            <h2>Player 2</h2>
+            <h3>Score: <span id="score-1">0</span></h3>
+            <img id="dice-p1" src="dice_png/Dice-2.png" />
+            <h4>Current Score: <span id="curr_score_1">0</span></h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="hide">
+      <p>Made using HTML CSS JS</p>
+    </footer>
+
+    <!-- modal -->
+    <div class="overlay hide"></div>
+    <div class="modal">
+      <div class="modal-body">
+        <p id="modalClsBtn">&times;</p>
+        <h2>Instructions</h2>
+        <p>
+          Roll the dice to get score. When the dice face has one you lost the
+          round and the current score will get reset. Use hold point to store
+          the current points. 100 points to win the game.
+        </p>
+      </div>
+    </div>
+    <!-- Backgroun svg -->
+    <div class="bg-svg">
+      <svg width="1920" height="1080" viewBox="0 0 1920 1080">
+        <g>
+          <path
+            d="M337.665 760.732C62.0647 760.732 10.6667 987.505 -0.5 1029.67V1082.5H1919L1969.5 1071.5C1941.33 977.5 2026.2 230.427 1919 230.427C1785 230.427 1831.97 647.095 1492.97 647.095C1153.97 647.095 1141.18 912.248 864.182 912.248C587.182 912.248 682.165 760.732 337.665 760.732Z"
+            fill="#BA8C63"
+          />
+        </g>
+      </svg>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+<!-- M337.665 760.732C62.0647 760.732 10.6667 987.505 -0.5 1029.67V1082.5H1919L1969.5 1071.5C1941.33 977.5 2026.2 230.427 1919 230.427C1785 230.427 1831.97 647.095 1492.97 647.095C1153.97 647.095 1141.18 912.248 864.182 912.248C587.182 912.248 682.165 760.732 337.665 760.732Z -->
