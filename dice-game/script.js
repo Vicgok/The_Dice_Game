@@ -123,7 +123,7 @@ btn_hold.addEventListener("click", () => {
     document.getElementById(`score-${active_player}`).textContent =
       scores[active_player];
 
-    if (scores[active_player] >= 20) {
+    if (scores[active_player] >= 100) {
       winner();
     }
   }
